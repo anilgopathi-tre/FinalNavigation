@@ -6,7 +6,7 @@ import { INavConfig, DEFAULT_NAV_CONFIG } from './INavConfig';
 const LOG_SOURCE: string = 'HubNavigationApplicationCustomizer';
 
 /** Throttle delay for DOM observer (ms) */
-const OBSERVER_THROTTLE_MS = 300;
+const OBSERVER_THROTTLE_MS = 50;
 
 /** CSS selectors for hub navigation links */
 const NAV_SELECTORS = [
@@ -52,7 +52,7 @@ export default class HubNavigationApplicationCustomizer
       // Re-apply on navigation events
       this.context.application.navigatedEvent.add(this, () => {
         try {
-          setTimeout(() => this._applyHighlighting(), 500);
+          setTimeout(() => this._applyHighlighting(), 50);
         } catch (error) {
           Log.error(LOG_SOURCE, new Error(`Navigation event handler failed: ${error}`));
         }
